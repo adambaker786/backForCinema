@@ -5,6 +5,7 @@ const Place = require("../models/Place.model");
 module.exports.placeController = {
   getPlaces: async (req, res) => {
     try {
+      // вывод всех мест
       const places = await Place.find();
       res.json(places);
     } catch (error) {
@@ -14,11 +15,12 @@ module.exports.placeController = {
 
   addPlace: async (req, res) => {
     try {
+      // бронь мест по нажатию на него с привязкой к пользователю
       const { id } = req.user;
-      const placesList = await Place.find();
+      const { number } = req.body;
       const placeAdded = await Place.create({
         user: id,
-        number: placesList.length + 1,
+        number,
       });
       res.json(placeAdded);
     } catch (error) {
@@ -28,6 +30,7 @@ module.exports.placeController = {
 
   deletePlace: async (req, res) => {
     try {
+      // отвязка места от пользователя
       const place = await Place.findOne({ user: req.user.id });
       await Place.findByIdAndDelete(place._id);
       res.json("Успех");
