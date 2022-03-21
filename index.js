@@ -18,6 +18,6 @@ mongoose
   .then(() => {
     console.log("Соединение с монго установлено");
     app.listen(port, () => {
-      console.log(`http://localgost:${ports}`);
+      console.log(`http://localhost:${port}`);
     });
   });
