@@ -5,3 +5,5 @@ const router = Router();
 
 router.get("/genres", genreController.getGenres);
 router.post("/genre", genreController.addGenre);
+
+module.exports = router;
