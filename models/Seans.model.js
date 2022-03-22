@@ -8,6 +8,10 @@ const seansSchema = mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: "Film",
   },
+  hall: {
+    type: mongoose.Types.ObjectId,
+    ref: "Hall",
+  },
 });
 
 const Seans = mongoose.model("Seans", seansSchema);

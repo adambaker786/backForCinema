@@ -5,6 +5,7 @@ const { seansController } = require("../controllers/seans.controller");
 const router = Router();
 
 router.get("/seans", seansController.getSeanses);
+router.get("/seans/:id", seansController.getOneSeans);
 router.post("/seans", seansController.addSeanses);
 
 module.exports = router;

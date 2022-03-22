@@ -3,10 +3,11 @@ const Seans = require("../models/Seans.model");
 module.exports.seansController = {
   addSeanses: async (req, res) => {
     try {
-      const { time, film } = req.body;
+      const { time, film, hall } = req.body;
       const seans = await Seans.create({
         time,
         film,
+        hall,
       });
       res.json(seans);
     } catch (error) {
@@ -15,8 +16,19 @@ module.exports.seansController = {
   },
   getSeanses: async (req, res) => {
     try {
-      const showSeanses = await Seans.find().populate("film");
+      const showSeanses = await Seans.find();
       res.json(showSeanses);
+    } catch (error) {
+      res.json(error);
+    }
+  },
+
+  getOneSeans: async (req, res) => {
+    try {
+      const seansGetted = await Seans.findById(req.params.id)
+        .populate("film")
+        .populate("hall");
+      res.json(seansGetted);
     } catch (error) {
       res.json(error);
     }
