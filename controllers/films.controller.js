@@ -2,11 +2,12 @@ const Film = require("../models/Film.model")
 
 module.exports.filmsControllers = {
     postFilm: async (req,res)=>{
-        const {name,director, rating,smallText,genre, img}
+        const {name,director, rating,smallText,genre, img,hall}
         try{
             const film = await Film.create({
                 name,
                 img,
+                hall,
                 discription: 
                 {director,smallText,rating,genre},
 
