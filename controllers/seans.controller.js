@@ -16,7 +16,7 @@ module.exports.seansController = {
   },
   getSeanses: async (req, res) => {
     try {
-      const showSeanses = await Seans.find();
+      const showSeanses = await Seans.find().populate("film").populate("hall");
       res.json(showSeanses);
     } catch (error) {
       res.json(error);
