@@ -9,7 +9,7 @@ module.exports.busyController = {
         seans: id,
         place: num,
       });
-      res.json(busy);
+      res.json(busyAdded);
     } catch (error) {
       res.json(error);
     }
