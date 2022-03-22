@@ -8,6 +8,10 @@ const placeSchema = mongoose.Schema({
   number: {
     type: Number,
   },
+  hall: {
+    type: mongoose.Types.ObjectId,
+    ref: "Hall",
+  },
 });
 
 const Place = mongoose.model("Place", placeSchema);
