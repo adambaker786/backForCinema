@@ -6,7 +6,7 @@ module.exports.busyController = {
       const { id, num } = req.body;
       const busyAdded = await Busy.create({
         user: req.user.id,
-        seans: num,
+        seans: id,
         place: num,
       });
       res.json(busy);
