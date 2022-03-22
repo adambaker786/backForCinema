@@ -3,7 +3,7 @@ const { busyController } = require("../controllers/busy.controller");
 
 const router = Router();
 
-router.post("/film", busyController.addBusy);
-router.get("/films", busyController.getBusy);
+router.post("/busy", busyController.addBusy);
+router.get("/busy", busyController.getBusy);
 
 module.exports = router;
