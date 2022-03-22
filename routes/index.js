@@ -4,7 +4,7 @@ const importGenre = require("./genre.route");
 const importPlace = require("./place.route");
 const importSeans = require("./seans.route");
 const importUser = require("./users.route");
-const importHall = require("./hall.route");
+const importHall = require("./halls.route");
 
 const router = Router();
 
