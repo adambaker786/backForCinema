@@ -27,8 +27,7 @@ const filmSchema = mongoose.Schema({
       required: true,
     },
     genre: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Genre",
+      type: String,
       required: true,
     },
   },
