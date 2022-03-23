@@ -16,7 +16,7 @@ module.exports.busyController = {
   },
   getBusy: async (req, res) => {
     try {
-      const busy = await Busy.find();
+      const busy = await Busy.find().populate("user").populate("seans");
       res.json(busy);
     } catch (error) {
       res.json(error);

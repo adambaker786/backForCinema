@@ -20,7 +20,7 @@ module.exports.filmsControllers = {
     },
     getAllFilms: async (req,res)=>{
         try{
-            const film = await Film.find()
+            const film = await Film.find().populate("hall")
             res.json(film)
         }
         catch(err){
@@ -29,16 +29,19 @@ module.exports.filmsControllers = {
     },
     getFilmsByCateg: async (req,res)=>{
         try{
-            const film = await Film.find({discription:{genre:req.params.id}})
+            const film = await Film.find({discription:{genre:req.params.id}}).populate("hall")
             res.json(film)
         }
         catch(err){
             res.json(err.toString())
         }
     },
-    getFilmById: async (req,res)=>{
+    getFilmById: async (req, res)=>{
         try{
-            const film = await Film.findById(req.params.id)
+            const film = await Film.findById(req.params.id).populate("hall")
+            res.json(film)
+        }catch (error) {
+            res.json(error)
         }
     }
 }
