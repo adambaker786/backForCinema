@@ -47,4 +47,13 @@ module.exports.userController = {
       res.json(err.toString());
     }
   },
+
+  getUser: async (req, res) => {
+    try {
+      const user = await User.findOne({ name: req.user.name });
+      res.json(user);
+    } catch (error) {
+      res.json(error);
+    }
+  },
 };
