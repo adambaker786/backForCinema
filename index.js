@@ -14,9 +14,7 @@ app.use(cors());
 app.use(importRoute);
 
 mongoose
-  .connect(
-    `mongodb+srv://jackcoul:1558@cluster0.rbezt.mongodb.net/NewProductsShop`
-  )
+  .connect(`mongodb+srv://jackcoul:1558@cluster0.rbezt.mongodb.net/Cinema`)
   .then(() => {
     console.log("Соединение с монго установлено");
     app.listen(port, () => {
