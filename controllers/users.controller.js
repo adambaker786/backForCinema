@@ -42,7 +42,7 @@ module.exports.userController = {
       const token = await jwt.sign(payload, process.env.SECRET_KEY, {
         expiresIn: "30d",
       });
-      res.json(token);
+      res.json({ token });
     } catch (err) {
       res.json(err.toString());
     }
