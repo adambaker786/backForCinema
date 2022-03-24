@@ -33,4 +33,15 @@ module.exports.seansController = {
       res.json(error);
     }
   },
+
+  editSeans: async (req, res) => {
+    try {
+      await Seans.findByIdAndUpdate(req.params.id, {
+        place: [...req.body.place],
+      });
+      res.json("Успешно");
+    } catch (error) {
+      res.json(error);
+    }
+  },
 };
