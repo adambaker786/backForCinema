@@ -2,9 +2,9 @@ const Hall = require("../models/Hall.model");
 
 module.exports.hallController = {
   postHall: async (req, res) => {
-    const { status } = req.body;
+    const { status, placesCount} = req.body;
     try {
-      const hall = await Hall.create({ status });
+      const hall = await Hall.create({ status , placesCount});
       res.json(hall);
     } catch (err) {
       res.json(err.toString());
