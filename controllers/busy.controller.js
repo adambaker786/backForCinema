@@ -2,6 +2,7 @@ const Busy = require("../models/Busy.model");
 
 module.exports.busyController = {
   addBusy: async (req, res) => {
+    
     try {
       const { id, num } = req.body;
       const busyAdded = await Busy.create({
