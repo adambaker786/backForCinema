@@ -7,5 +7,6 @@ const router = Router();
 router.get("/seans", seansController.getSeanses);
 router.get("/seans/:id", seansController.getOneSeans);
 router.post("/seans", seansController.addSeanses);
+router.patch('/seans/:id', seansController.editSeans)
 
 module.exports = router;
