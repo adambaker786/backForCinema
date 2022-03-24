@@ -3,7 +3,7 @@ const News = require("../models/News.model");
 module.exports.newsController = {
   getAllNews: async (req, res) => {
     try {
-      const news = News.find();
+      const news = await News.find();
       res.json(news);
     } catch (error) {
       res.json(error);
@@ -13,13 +13,13 @@ module.exports.newsController = {
     try {
       const { img, date, info, title } = req.body;
 
-      const news = News.create({
+      const news = await News.create({
         img,
         date,
         title,
         info,
       });
-      res.json(news)
+      res.json(news);
     } catch (error) {
       res.json(error);
     }
