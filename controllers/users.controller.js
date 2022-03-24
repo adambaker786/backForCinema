@@ -7,6 +7,10 @@ module.exports.userController = {
   registerUser: async (req, res) => {
     try {
       const { name, login, password } = req.body;
+      const searchUser = await User.findOne({ login });
+      if (searchUser) {
+        return res.json("такой логин уже существует");
+      }
       const hash = await bcrypt.hash(
         password,
         Number(process.env.BCRYPT_ROUNDS)
@@ -16,7 +20,7 @@ module.exports.userController = {
         login,
         password: hash,
       });
-      res.json(user);
+      res.json({ user });
     } catch (err) {
       res.json(err.toString());
     }
