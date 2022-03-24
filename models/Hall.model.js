@@ -5,6 +5,10 @@ const hallSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  placesCount: {
+      type: Number,
+      required: true,
+  }
 });
 
 const Hall = mongoose.model("Hall", hallSchema);

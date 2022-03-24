@@ -12,6 +12,10 @@ const seansSchema = mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: "Hall",
   },
+  place: [{
+    type: Number,
+    required: true
+  }]
 });
 
 const Seans = mongoose.model("Seans", seansSchema);
