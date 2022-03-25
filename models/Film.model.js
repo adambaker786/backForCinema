@@ -9,9 +9,17 @@ const filmSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  video: {
+    type: String,
+    required: true
+  },
   hall: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Hall",
+  },
+  price:{
+    type: Number,
+    required: true
   },
   discription: {
     director: {

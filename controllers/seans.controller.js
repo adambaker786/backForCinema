@@ -36,8 +36,12 @@ module.exports.seansController = {
 
   editSeans: async (req, res) => {
     try {
+      
+      
       await Seans.findByIdAndUpdate(req.params.id, {
-        place: [...req.body.place],
+        $addToSet:{
+          place: req.body.place
+        }
       });
       res.json("Успешно");
     } catch (error) {
