@@ -34,14 +34,13 @@ module.exports.seansController = {
     }
   },
 
-  editSeans: async (req, res) => {
+  editSeansToBusyPlace: async (req, res) => {
     try {
-      
-      
-      await Seans.findByIdAndUpdate(req.params.id, {
-        $addToSet:{
-          place: req.body.place
-        }
+      const seans = await Seans.findById(req.params.id);
+      await Seans.findByIdAndUpdate(seans._id, {
+        $addToSet: {
+          place: req.body.place,
+        },
       });
       res.json("Успешно");
     } catch (error) {
