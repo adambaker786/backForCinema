@@ -3,11 +3,13 @@ const Busy = require("../models/Busy.model");
 module.exports.busyController = {
   addBusy: async (req, res) => {
     try {
-      const { id, num } = req.body;
-      const busyAdded = await Busy.create({
-        user: req.user.id,
-        seans: id,
-        place: num,
+      const { placesList, id } = req.body;
+      const busyAdded = await placesList.map((place) => {
+        Busy.create({
+          user: req.user.id,
+          seans: id,
+          place,
+        });
       });
       res.json(busyAdded);
     } catch (error) {
