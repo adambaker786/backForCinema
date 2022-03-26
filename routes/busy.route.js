@@ -4,8 +4,8 @@ const authMiddleware = require("../middlewares/auth.middleware");
 
 const router = Router();
 
-router.post("/busy", busyController.addBusy);
+router.post("/busy", authMiddleware, busyController.addBusy);
 router.get("/busy", busyController.getBusy);
-router.get("user/busy", authMiddleware, busyController.getUserBusy);
+router.get("/user/busy", authMiddleware, busyController.getUserBusy);
 
 module.exports = router;
