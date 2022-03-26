@@ -4,7 +4,6 @@ module.exports.busyController = {
   addBusy: async (req, res) => {
     try {
       const { placesList, id } = req.body;
-      console.log(1);
       placesList.forEach(async (place) => {
         await Busy.create({
           user: req.user.id,

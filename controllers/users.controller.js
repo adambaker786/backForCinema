@@ -55,7 +55,7 @@ module.exports.userController = {
   getUser: async (req, res) => {
     try {
       const user = await User.findOne({ name: req.user.name });
-      res.json(user);
+      res.json({ name: user.name, login: user.login });
     } catch (error) {
       res.json(error);
     }
