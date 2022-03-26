@@ -2,7 +2,6 @@ const Busy = require("../models/Busy.model");
 
 module.exports.busyController = {
   addBusy: async (req, res) => {
-    
     try {
       const { id, num } = req.body;
       const busyAdded = await Busy.create({
@@ -23,5 +22,13 @@ module.exports.busyController = {
       res.json(error);
     }
   },
-  
+
+  getUserBusy: async (req, res) => {
+    try {
+      const userBusy = await Busy.find({ user: req.user.id });
+      res.json(userBusy);
+    } catch (error) {
+      res.json(error);
+    }
+  },
 };
