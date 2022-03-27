@@ -14,6 +14,21 @@ module.exports.seansController = {
       res.json(error);
     }
   },
+  
+    deletePlaceBySeans: async (req,res)=>{
+      const {places} = req.body
+      try{
+        await Seans.findByIdAndUpdate(req.params.id,{
+          $pull:{
+            place: places
+          }
+        })
+        res.json("Возврат оформлен")
+      }
+      catch(err){
+        res.json(err.toString())
+      }
+    },
   getSeanses: async (req, res) => {
     try {
       const showSeanses = await Seans.find().populate("film").populate("hall");
