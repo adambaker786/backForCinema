@@ -1,5 +1,4 @@
 const { Router } = require("express");
-const { route } = require("express/lib/application");
 const { seansController } = require("../controllers/seans.controller");
 const authMiddleware = require("../middlewares/auth.middleware");
 
@@ -13,5 +12,6 @@ router.patch(
   authMiddleware,
   seansController.editSeansToBusyPlace
 );
+router.patch("/seans/place/:id", authMiddleware, seansController.deletePlaceBySeans)
 
 module.exports = router;

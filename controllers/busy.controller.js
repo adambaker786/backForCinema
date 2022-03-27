@@ -37,4 +37,16 @@ module.exports.busyController = {
       res.json(error);
     }
   },
+  deleteBusy: async (req,res)=>{
+    
+    try{
+
+        const busy = await Busy.findByIdAndDelete(req.params.id)
+       
+      res.json("Возврат оформлен")
+    }
+    catch(err){
+      res.json(err.toString())
+    } 
+  }
 };
