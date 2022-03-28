@@ -20,7 +20,7 @@ module.exports.reviewsController = {
         try{
             const review  = await Review.find({
                 film: req.params.id
-            })
+            }).populate("user")
             res.json(review)
         }
         catch(err){
