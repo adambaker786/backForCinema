@@ -9,7 +9,8 @@ module.exports.reviewsController = {
                 film,
                 text
             })
-            res.json(review)
+            const reviewGet = await Review.findById(review._id).populate("user")
+            res.json(reviewGet)
         }
         catch(err){
             res.json(err.toString())
