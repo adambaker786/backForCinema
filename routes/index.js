@@ -5,6 +5,7 @@ const importUser = require("./users.route");
 const importHall = require("./halls.route");
 const importBusy = require("./busy.route");
 const importNews = require("./news.route");
+const importReview = require("./reviews.route")
 
 const router = Router();
 
@@ -14,5 +15,6 @@ router.use(importHall);
 router.use(importSeans);
 router.use(importUser);
 router.use(importNews);
+router.use(importReview)
 
 module.exports = router;
